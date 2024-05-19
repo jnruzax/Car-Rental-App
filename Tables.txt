@@ -1,0 +1,59 @@
+create table CUSTOMER
+(customer_ID char(11), 
+Name varchar(50),
+Category_type varchar(20),
+constraint PK_CUSTOMER primary key(customer_ID),
+Constraint validateMarks check(category_type in ('category 1','category 2','category 3'))); 
+
+create table DEPOT
+(Depot_ID char(12),
+Region Varchar(50),
+constraint PK_DEPOT primary key(Depot_ID));
+
+create table PRODUCT 
+(Product_ID char(20),
+Product_Type varchar(15),
+Load_ID char (10,)
+constraint PK_PROduct primary key(Product_ID),
+constraint validateMarks1 check(Product_Type in(' HIGH RISK','LOW RISK')));
+
+create table TRANSPORT 
+(Transport_ID char(6),
+Driver_Name varchar(50),
+Assistance_Name varchar(50),
+Vehicle varcher(50), 
+Depot_ID char(12)not null,
+constraint PK_TRANSPORT primary key(Transport_ID),
+constraint FK_TRANSPORT Foreign key(Depot_ID) references DEPOT(Depot_ID)
+constraint validateMarks3 check(Vehicle in ('lorry','container')));
+
+create table JOB
+(Job_ID char(6),
+Job_type varcher(50),
+customer_ID char(11)not null,
+Depot_ID char(12)not null,
+constraint PK_JOB primary key(Job_ID),
+constraint FK_JOB Foreign key(customer_ID) references CUSTOMER(Cus_NIC_ID),
+constraint Fk_JOB1 Foreign key(Depot_ID) references DEPOT(Depot_ID));
+constraint validateMarks4 check(Job_type in ('Driver','Assistance')))
+
+create table PAYMENT
+(Payment_ID int,
+Payment_Method varchar(15),
+Amount money,
+cutomer_ID char(11) not null,
+Job_ID char(6)not null,
+constraint PK_PAYMENT primary key (Payment_ID),
+constraint FK_PAYMENT Foreign key (customer_ID) references CUSTOMER(Cus_NIC_ID),
+constraint FK_PAYMENT Foreign key (Job_ID) references JOB(Job_ID),
+constraint validateMarks2 check(Method in('Cash','Cheque','Credit')));
+
+
+
+create table LOAD
+(Load_ID char(10),
+Load_Type varchar(10),
+Product_ID char(20)not null,
+constraint PK_LOAD primary key(Load_ID),
+constraint FK_LOAD1 Foreign key(Product_ID) references PRODUCT(Product_ID),
+constraint validateMarks3 check(Load_Type in('Large','Medium','Small')));

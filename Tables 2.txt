@@ -1,0 +1,34 @@
+INSERT INTO customer_table (customer_ID, Name, category_type);
+VALUES (’995560’, ‘Amila’, ‘category 3’);
+VALUES (’658083’, ‘Riyal’, ‘category 1’);
+VALUES (’764309’, ‘Dasun’, ‘category 2’);
+
+INSERT INTO Payment_table (payment_ID, customer_ID, Amount, product_ID, Job_ID, payment_method);
+VALUES (‘P001’, ‘ 658083’, ’12500/=’, ‘P#003’, ‘Jb001’, ‘Cash’);
+VALUES (‘P002’, ’764309’, ‘21300/=’, ‘P#002’, ‘Jb002’, ‘Cheque’);
+VALUES (‘P003’, ’658083’, ‘ 10000/=’, ‘P#001’, ‘Jb003’, ‘Credit’);
+
+INSERT INTO Job_table (Job_ID, Job_type, customer_ID, Load_ID, Depot_ID );
+VALUES (‘Jb001’, ’Driver’, ’995560’, ‘Ld111’, ‘Dp001’);
+VALUES (‘Jb002’, ‘Driver’, ’658083’, ‘Ld222’, ‘Dp002’);
+VALUES (‘Jb003’, ‘Driver/ Assistance’, ‘764309’, ‘Ld333’, ‘Dp003’);
+
+INSERT INTO Load_table (Load_ID, Start location, end location, Amount);
+VALUES (‘Ld111’, ‘Colombo’, ‘Jaffna’, ’12500/=’);
+VALUES (‘Ld222’, ‘Kadawatha’ ‘Mathara’, ‘21300/=’);
+VALUES (‘Ld003’, ‘Kiribathgoda’, ‘Galle’, ’10000/=’);
+
+INSERB INTO Product_table (Product_ID, Product_type, Load_ID);
+VALUES (‘P#001’, ‘High risk’, ‘Ld333’);
+VALUES (‘P#002’, ‘Low risk’, ‘Ld111’);
+VALUES (‘P#003’, ‘Low risk’, ‘Ld222’);
+
+INSER INTO Depot_table (Depot_ID, Region);
+VALUES (‘Dp001’, ‘Mathara’);
+VALUES (‘Dp002’, ‘Galle’,);
+VALUES (‘Dp003’, ‘Colombo’);
+
+INSERT INTO Transport_table (Transport_ID, Driver’s name, Assistance”s name, Vehicle);
+VALUES (’Tp999’, ’Saman’, ’Nihal’, ‘lorry’);
+VALUES (’Tp888’, ‘Silva’, ‘Amila’, ‘lorry’);
+VALUES (’Tp777’, ‘Raja’, ’Nirosh’, ‘container’);
